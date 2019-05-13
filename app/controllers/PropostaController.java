@@ -95,7 +95,7 @@ public class PropostaController extends Controller {
         Proposta atual = Proposta.findById(proposta_id);
         assert atual != null;
         atual.aceitar();
-        return redirect(routes.PropostaController.indexAguardando());
+        return redirect(routes.PropostaController.indexAceitas());
     }
 
     public Result recusarProposta(int proposta_id) {
