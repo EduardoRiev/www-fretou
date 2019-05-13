@@ -9,7 +9,7 @@
 
 ### 1.2 Escopo
 
-*Responsabilidades:*
+### Serão responsabilidades do sistema:
 
 - Permitir que os usuários se cadastrem no sistema e possam logar na sua conta;
 - Permitir que usuários já cadastrados recuperem o acesso ao sistema, se porventura houver algum tipo de perda de dados na autenticação, através de uma confirmação de identidade;
@@ -21,19 +21,19 @@
 - Garantir o acesso ao sistema por diversos usuários ao mesmo tempo, independentemente das tarefas que estejam realizando;
 - Garantir a postagem de múltiplos anúncios por parte de um usuário já cadastrado;
 - Fornecer uma linguagem clara e objetiva entre contratante e contratado, visando agilizar o processo de negociação;
-- O sistema deve garantir que, para transações feitas na plataforma, o valor a ser depositado na conta do fretista seja o mesmo valor combinado com o cliente durante a etapa de negociação;
+- O sistema deve garantir que, para transações feitas na plataforma, o valor a ser depositado na conta do fretista seja o mesmo valor combinado com o cliente durante a
+etapa de negociação;
 - Garantir que usuários se portem de forma adequada e de acordo com as políticas de uso da plataforma;
 - Notificar as partes envolvidas na transação após feito o registro do pagamento de uma negociação feita na plataforma;
 (Se o depósito na conta não for registrado, o sistema notifica ao usuário que solicite uma outra forma de pagamento, ficando a critério dos usuários qual)
 - Garantir que fretistas possam informar sobre o estado do trasnporte da carga caso hajam imprevistos;
 
-*Não-Responsabilidades:*
+### Não será responsabilidade do sistema:
 
-- Pagamentos fora da plataforma;
-- Se a entrega/carga chegará ao destino correto, requerido pelo cliente, e no prazo estipulado pelo motorista;
-- Garantir a segurança tanto do motorista, quanto da carga transportada;
-- Imprevistos que possam ocorrer durante o transporte;
-- Atender demandas fora do escopo;
+- Tratar pagamentos;
+- Logística e acompanhamento de entrega;
+- Garantir a segurança tanto do motorista, quanto da carga transportada através de rastreamento da carga baseada na posição do dispositivo que o motorista 
+utilizar para entrar em contato com o sistema;
 
 ## 2. Requisitos
 
@@ -72,7 +72,7 @@
 
 ### 2.4 Diagrama Geral de Casos de Uso
 
-    Diagrama de casos de uso
+![Diagrama de Casos de Uso](https://gitlab.devops.ifrn.edu.br/tads.cnat/pdsweb/2019-1/www-fretou/wikis/uploads/ae3dac0ebc06582c7e9346801c92c2a9/print2.png)
 
 ### 2.5. Casos de Uso
 

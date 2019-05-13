@@ -1,0 +1,60 @@
+@(propostas: Set[Proposta])
+
+@main("Titulo da Proposta", "yes"){
+
+  <div class="row">
+
+    <div id="sidebar" class="col-3 border-right">
+      <h3>Conta</h3>
+      <a href="#" class="menu-item">Informações da conta</a>
+      <a href="#" class="menu-item">Informações pessoais</a>
+      <a href="#" class="menu-item">Informações de segurança</a>
+      <h3>Anúncios</h3>
+      <a href="#" class="menu-item">Meus anúncios</a>
+      <a href="/usuario/propostas" class="menu-item">Propostas</a>
+    </div>
+    <div class="col-9">
+      <h2>Minhas propostas</h2>
+      <span>Últimas propostas que você recebeu</span>
+
+      <div class="row my-2">
+        <div class="col-12">
+          <div class="row">
+          <div class="col-4">
+            <a href="/usuario/propostas/aceitas" class="btn btn-outline-success">
+              Propostas aceitas
+            </a>
+          </div>
+          <div class="col-4">
+            <a href="/usuario/propostas/aguardando" class="btn btn-outline-warning">
+              Propostas em aguardo
+            </a>
+          </div>
+          <div class="col-4">
+            <a href="/usuario/propostas/recusadas" class="btn btn-outline-danger">
+              Propostas recusadas
+            </a>
+          </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <table class="table table-hover">
+            <tbody>
+              @for(proposta <- propostas){
+                <tr>
+                  <th scope="row">@proposta.getId()</th>
+                  <td><a href="/usuario/proposta/@proposta.getId()">Titulo do anuncio</a></td>
+                    <td>por Usuário (@proposta.getUsuario_id())</td>
+                    <td>@proposta.getStatus()</td>
+                    <td>feita em 00/00/2019 às 12:32</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  }

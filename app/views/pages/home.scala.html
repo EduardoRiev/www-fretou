@@ -1,14 +1,23 @@
 @()
-
+@r = @{new java.util.Random}
 @main("www-fretou","yes") {
-  <h1>Eh a tal da tela inicial só que logado kkk</h1><br>
-  <h1>Eh a tal da tela inicial só que logado kkk</h1><br>
-  <h1>Eh a tal da tela inicial só que logado kkk</h1><br>
-  <h1>Eh a tal da tela inicial só que logado kkk</h1><br>
-  <h1>Eh a tal da tela inicial só que logado kkk</h1><br>
-  <h1>Eh a tal da tela inicial só que logado kkk</h1><br>
-  <h1>Eh a tal da tela inicial só que logado kkk</h1><br>
-  <h1>Eh a tal da tela inicial só que logado kkk</h1><br>
-  <h1>Eh a tal da tela inicial só que logado kkk</h1><br>
-  <h1>Eh a tal da tela inicial só que logado kkk</h1><br>
+  <div class="row">
+
+    @for(i <- 1 to 12){
+      <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+        <div id="anuncio-home">
+          <div id="anuncio-detalhes">
+            <a href="/anuncios/@i-titulo-do-anuncio">
+              <img class="anuncio-miniatura" src="https://placehold.it/250x280">
+            </a>
+            <a class="anuncio-propostas" href="/anuncios/@i-titulo-do-anuncio">@r.nextInt(25)</a>
+          </div>
+          <a class="anuncio-titulo" href="/anuncios/@i-titulo-do-anuncio">Titulo Anuncio</a>
+          <a class="anuncio-localizacao" href="/anuncios/@i-titulo-do-anuncio">Localização - UF</a>
+        </div>
+      </div>
+    }
+
+  </div>
+
 }

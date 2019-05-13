@@ -1,17 +1,17 @@
-@()
+@(p: Proposta)
 
 @main("Titulo da Proposta", "yes"){
 
   <div class="row">
 
-    <div class="col-3 border-right">
+    <div id="sidebar" class="col-3 border-right">
       <h3>Conta</h3>
       <a href="#" class="menu-item">Informações da conta</a>
       <a href="#" class="menu-item">Informações pessoais</a>
       <a href="#" class="menu-item">Informações de segurança</a>
       <h3>Anúncios</h3>
       <a href="#" class="menu-item">Meus anúncios</a>
-      <a href="/propostas" class="menu-item">Propostas</a>
+      <a href="/usuario/propostas" class="menu-item">Propostas</a>
     </div>
     <div class="col-9">
       <h2>#1 - Título do anúncio</h2>
@@ -19,7 +19,8 @@
         <div class="col-12">
           <span class="proposta-detalhes">Proposta enviada por <b>Usuario</b></span>
           <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ornare bibendum libero, at pretium quam. Integer rutrum fringilla odio bibendum aliquet. Morbi accumsan, urna et rutrum molestie, justo odio vulputate libero, eu sollicitudin justo ex eget dui. Ut varius tortor ullamcorper nibh mattis, quis dapibus eros blandit. Integer eu vestibulum magna. Ut pulvinar libero vitae efficitur eleifend. Cras ut neque nec velit semper pellentesque ut ac lacus. Quisque lorem risus, pretium eget nisl in, ornare porttitor ante.</p>
-          <button class="btn btn-success">Aceitar proposta</button> <button class="btn btn-danger">Recusar proposta</button>
+          <form action='/usuario/propostas/responder/@p.getId()/aceitar' method="post"><button class="btn btn-success">Aceitar proposta</button></form>
+          <form action='/usuario/propostas/responder/@p.getId()/recusar' method="post"><button class="btn btn-danger">Recusar proposta</button></form>
         </div>
       </div>
     </div>
