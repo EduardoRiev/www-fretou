@@ -6,7 +6,42 @@
 GET     /                           controllers.IndexController.index
 
 GET     /inicio                       controllers.HomeController.index
-GET     /anuncio/:id                controllers.HomeController.anuncio(id: Int)
+
+GET     /anuncios                       controllers.AnuncioController.index
+
+GET     /anuncios/create                       controllers.AnuncioController.create
+
+POST     /anuncios/create                       controllers.AnuncioController.store
+
+GET     /anuncios/edit/:id                       controllers.AnuncioController.edit(id: Integer)
+
+PATCH     /anuncios/edit/:id                       controllers.AnuncioController.update(id: Integer)
+
+GET     /anuncios/:slug                       controllers.AnuncioController.show(slug: String)
+
+GET     /anuncios/acompanhar/:id                       controllers.PropostaController.acompanhar(id: Integer)
+
+GET     /anuncios/:id/proposta                       controllers.PropostaController.verPropostas(id: Integer)
+
+POST     /anuncios/:id/proposta                       controllers.AnuncioController.realizar(id: Integer)
+
+GET   /usuario/propostas/aguardando                   controllers.PropostaController.indexAguardando()
+
+GET   /usuario/propostas/aceitas                   controllers.PropostaController.indexAceitas()
+
+GET   /usuario/propostas/recusadas                   controllers.PropostaController.indexRecusadas()
+
+GET     /usuario/proposta/:proposta_id                       controllers.PropostaController.ver(proposta_id: Integer)
+
++ nocsrf
+POST     /usuario/propostas/responder/:proposta_id/aceitar                      controllers.PropostaController.aceitarProposta(proposta_id: Integer)
+
++ nocsrf
+POST     /usuario/propostas/responder/:proposta_id/recusar                     controllers.PropostaController.recusarProposta(proposta_id: Integer)
+
+GET     /usuario/:usuario_id/anuncio/:anuncio_id/avaliar                       controllers.UsuarioController.avaliacao(usuario_id: Integer, anuncio_id: Integer)
+
+POST     /usuario/:usuario_id/anuncio/:anuncio_id/avaliar                       controllers.UsuarioController.avaliar(usuario_id: Integer, anuncio_id: Integer)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
