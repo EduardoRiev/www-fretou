@@ -29,18 +29,18 @@
       </li>
       @if(loggedIn=="yes"){
         <li class="nav-item dropdown mr-3">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          <a class="nav-link dropdown-toggle fas fa-id-card-alt" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">
           Painel
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Minha conta</a>
+          <a class="dropdown-item" href="/usuario">Minha conta</a>
           <a class="dropdown-item" href="#">Sair</a>
         </div>
       </li>
     }else{
       <li class="nav-item mr-3">
-        <i class="fas fa-sign-in-alt"></i> Entrar ou registrar-se
+        <a href="/inicio" class="nav-link fas fa-sign-in-alt"> Entrar</a> ou registrar-se
       </li>
     }
   </ul>

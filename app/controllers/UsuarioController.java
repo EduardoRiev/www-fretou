@@ -9,7 +9,7 @@ import javax.inject.Inject;
 public class UsuarioController extends Controller {
 
     public Result index() {
-        return ok(views.html.pages.home.render());
+        return ok(views.html.pages.usuario.inicio.render());
     }
 
    /*

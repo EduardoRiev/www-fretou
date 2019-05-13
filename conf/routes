@@ -25,6 +25,10 @@ GET     /anuncios/:id/proposta                       controllers.PropostaControl
 
 POST     /anuncios/:id/proposta                       controllers.AnuncioController.realizar(id: Integer)
 
+GET   /usuario                                      controllers.UsuarioController.index
+
+GET   /usuario/propostas                              controllers.PropostaController.indexAguardando
+
 GET   /usuario/propostas/aguardando                   controllers.PropostaController.indexAguardando()
 
 GET   /usuario/propostas/aceitas                   controllers.PropostaController.indexAceitas()
