@@ -1,0 +1,32 @@
+@r = @{new java.util.Random}
+
+@main("Fretou - Todos os anuncios","no") {
+
+  <!-- smooth-shipping -->
+  <section class="wthree-row w3-about py-md-5">
+    <div class="container py-4 mt-2">
+      <h3 class="tittle-w3ls text-center mb-3">Anuncios.</h3>
+      <p class="tit text-center mx-auto">Anuncios da pagina!</p>
+      <div class="card-deck pt-4 mt-md-4">
+        @for(i <- 1 to 12){
+        <div class="card">
+          <img src="@routes.Assets.versioned("images/g1.jpg")" class="img-fluid" alt="Card image cap">
+          <div class="card-body w3ls-card">
+            <h5 class="card-title">Titulo Anuncio</h5>
+            <p class="card-text mb-3 ">Localização - UF <br>Propostas: @r.nextInt(25)</p>
+            <div class="ab_button">
+              <a class="btn btn-primary btn-lg hvr-underline-from-left" href="/anuncios/@i"">Ver Anuncio </a>
+            </div>
+          </div>
+        </div>
+        @if(i % 3 == 0){
+          </div>
+          <div class="card-deck pt-4 mt-md-4">
+        }
+        }
+      </div>
+    </div>
+  </section>
+  <!-- //smooth-shipping -->
+
+}

@@ -16,7 +16,7 @@ public class AnuncioController extends Controller {
    */
 
     public Result index() {
-        return ok(views.html.pages.home.render());
+        return ok(views.html.pages.anuncios.render());
     }
 
    /*
