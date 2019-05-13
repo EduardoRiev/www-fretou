@@ -1,48 +1,51 @@
 @(loggedIn: String)
-<i id="navmenu-toggle" class="fas fa-bars"></i>
-<div class="navmenu" id="main-navmenu">
-    <a href="/" class="navmenu-item logo">FRETOU</a>
-    @if(loggedIn=="yes"){
-        <a href="#" class="navmenu-item">
-            INICIO
+<!-- header -->
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-gradient-secondary">
+
+    <h1>
+      <a class="navbar-brand" href="/">Fretou</a>
+    </h1>
+    <button class="navbar-toggler ml-md-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-lg-auto text-center">
+      <li class="nav-item active  mr-3">
+        <a class="nav-link" href="/">Inicio
+          <span class="sr-only">(atual)</span>
         </a>
-        <div class="dropable-div">
-            <button data-target="anuncios_menu" class="navmenu-item dropable position-relative">
-                ANUNCIOS
-                <i class="fas fa-caret-down"></i>
-            </button>
-            <div class="navmenu-dropdow-menu" id="anuncios_menu">
-                <a href="#" class="dropdown-item">
-                    <span>Listar Todos</span>
-                </a>
-                <span class="dropdown-item">
-                    <span>Meus Anuncios</span>
-                </span>
-            </div>
-        </div>
-        <a href="#" class="navmenu-item">
-            USUÁRIOS
+      </li>
+      <li class="nav-item  mr-3">
+        <a class="nav-link" href="#">Sobre</a>
+      </li>
+      <li class="nav-item  mr-3">
+        <a class="nav-link" href="#">Anúncios</a>
+      </li>
+      <li class="nav-item mr-3">
+        <a class="nav-link" href="#">Contato</a>
+      </li>
+      @if(loggedIn=="yes"){
+        <li class="nav-item dropdown mr-3">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Painel
         </a>
-        <div class="dropable-div reverse">
-            <button data-target="user_menu" class="navmenu-item dropable position-relative reverse">
-              NOME USUÁRIO
-              <i class="fas fa-caret-down"></i>
-            </button>
-            <div class="navmenu-dropdow-menu" id="user_menu">
-                <a href="#" class="dropdown-item">
-                    <span>Configurações</span><i class="fas fa-cog"></i>
-                </a>
-                <a href="/" class="dropdown-item">
-                    <span>Sair</span><i class="fas fa-sign-out-alt"></i>
-                </a>
-            </div>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Minha conta</a>
+          <a class="dropdown-item" href="#">Sair</a>
         </div>
+      </li>
     }else{
-        <a href="#" class="navmenu-item">
-            CONTATO
-        </a>
-        <a href="/inicio" class="navmenu-item reverse">
-            ENTRAR
-        </a>
+      <li class="nav-item mr-3">
+        <i class="fas fa-sign-in-alt"></i> Entrar ou registrar-se
+      </li>
     }
+  </ul>
 </div>
+
+</nav>
+</header>
+<!-- //header -->

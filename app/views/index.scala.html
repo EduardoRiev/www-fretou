@@ -1,29 +1,37 @@
 @()
 @r = @{new java.util.Random}
-@****************
+
 @main("www-fretou","no") {
 
-  <div class="row">
-
-    @for(i <- 1 to 12){
-      <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-        <div id="anuncio-home">
-          <div id="anuncio-detalhes">
-            <a href="/anuncio/@i">
-              <img class="anuncio-miniatura" src="https://placehold.it/250x280">
-            </a>
-            <a class="anuncio-propostas" href="/anuncio/@i">@r.nextInt(25)</a>
+  <!-- smooth-shipping -->
+  <section class="wthree-row w3-about py-md-5">
+    <div class="container py-4 mt-2">
+      <h3 class="tittle-w3ls text-center mb-3">Anuncios.</h3>
+      <p class="tit text-center mx-auto">Anuncios da pagina!</p>
+      <div class="card-deck pt-4 mt-md-4">
+        @for(i <- 1 to 12){
+        <div class="card">
+          <img src="@routes.Assets.versioned("images/g1.jpg")" class="img-fluid" alt="Card image cap">
+          <div class="card-body w3ls-card">
+            <h5 class="card-title">Titulo Anuncio</h5>
+            <p class="card-text mb-3 ">Localização - UF <br>Propostas: @r.nextInt(25)</p>
+            <div class="ab_button">
+              <a class="btn btn-primary btn-lg hvr-underline-from-left" href="/anuncio/@i"">Ver Anuncio </a>
+            </div>
           </div>
-          <a class="anuncio-titulo" href="/anuncio/@i">Titulo Anuncio</a>
-          <a class="anuncio-localizacao" href="/anuncio/@i">Localização - UF</a>
         </div>
+        @if(i % 3 == 0){
+          </div>
+          <div class="card-deck pt-4 mt-md-4">
+        }
+        }
       </div>
-    }
-
-  </div>
+    </div>
+  </section>
+  <!-- //smooth-shipping -->
 
 }
-**************@
+@**************
 
 @main("Titulo da Proposta", "yes"){
 
@@ -48,19 +56,19 @@
             <tbody>
               <tr>
                 <th scope="row">#123</th>
-                <td><a href="/propostas/ver/3">Titulo do anuncio</a</td>
+                <td><a href="/propostas/ver/3">Titulo do anuncio</a></td>
                 <td>por Usuário</td>
                 <td>feita em 00/00/2019 às 12:32</td>
               </tr>
               <tr>
                 <th scope="row">#99</th>
-                <td><a href="/propostas/ver/2">Titulo do anuncio</a</td>
+                <td><a href="/propostas/ver/2">Titulo do anuncio</a></td>
                 <td>por Usuário</td>
                 <td>feita em 00/00/2019 às 10:23</td>
               </tr>
               <tr>
                 <th scope="row">#25</th>
-                <td><a href="/propostas/ver/3">Titulo do anuncio</a</td>
+                <td><a href="/propostas/ver/3">Titulo do anuncio</a></td>
                 <td>por Usuário</td>
                 <td>feita em 00/00/2019 às 07:17</td>
               </tr>
@@ -71,5 +79,5 @@
     </div>
 
   </div>
-
 }
+*********@
