@@ -1,83 +1,124 @@
 @()
-@r = @{new java.util.Random}
 
-@main("www-fretou","no") {
 
-  <!-- smooth-shipping -->
-  <section class="wthree-row w3-about py-md-5">
-    <div class="container py-4 mt-2">
-      <h3 class="tittle-w3ls text-center mb-3">Anuncios.</h3>
-      <p class="tit text-center mx-auto">Anuncios da pagina!</p>
-      <div class="card-deck pt-4 mt-md-4">
-        @for(i <- 1 to 12){
-        <div class="card">
-          <img src="@routes.Assets.versioned("images/g1.jpg")" class="img-fluid" alt="Card image cap">
-          <div class="card-body w3ls-card">
-            <h5 class="card-title">Titulo Anuncio</h5>
-            <p class="card-text mb-3 ">Localização - UF <br>Propostas: @r.nextInt(25)</p>
-            <div class="ab_button">
-              <a class="btn btn-primary btn-lg hvr-underline-from-left" href="/anuncio/@i"">Ver Anuncio </a>
-            </div>
-          </div>
-        </div>
-        @if(i % 3 == 0){
-          </div>
-          <div class="card-deck pt-4 mt-md-4">
-        }
-        }
-      </div>
-    </div>
-  </section>
-  <!-- //smooth-shipping -->
+@main("Fretou - Inicio","no") {
+  <!-- banner -->
+	<section class="banner-silder">
+		<div id="JiSlider" class="jislider">
+			<ul>
+				<li>
+					<div class="banner-top banner-top1">
+						<div class="container">
+							<div class="banner-info info2">
+								<h3>Agilize sua mudança</h3>
+								<p>Utilize nossa plataforma para encontrar trabalhadores mais pŕoximos de você e com um preço totalmente acessível.</p>
+							</div>
+						</div>
+					</div>
+				</li>
 
+
+				<li>
+					<div class="banner-top banner-top2">
+						<div class="container">
+							<div class="banner-info bg3 info2">
+								<h3>Faça um bom negócio</h3>
+								<p>Com o fretou você pode negocioar com diversos motoristas para encontrar o mais adequado a você.</p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="banner-top banner-top3">
+						<div class="container">
+							<div class="banner-info bg3">
+								<h3>Qualidade e Confiança</h3>
+								<p>No fretou você encontra diversos motoristas e empresas para realizar o seu serviço da maneira mais segura e confiante possível, não deixando de lado a qualidade na hora da entrega.</p>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		</section>
+		<!-- //banner -->
+		<section class="banner_bottom">
+		<div class="container mt-2">
+			<div class="inner_sec_info_wthree_agile py-5">
+				<div class="row help_full py-sm-4">
+
+					<div class="col-md-6 pt-lg-5 mt-lg-5 banner_bottom_left">
+						<h4>Specialtymoves? We’re a company up to the challenge!</h4>
+						<p class="mb-3">Pellentesque convallis diam consequat magna vulputate malesuada. Cras a ornare elit. Nulla viverra pharetra sem, eget
+							pulvinar neque pharetra ac. Lorem Ipsum convallis diam consequat magna vulputate malesuada. Cras a ornare elit. Nulla
+							viverra pharetra sem, eget pulvinar neque pharetra ac.
+
+						</p>
+						<p class="mb-3">Pellentesque convallis diam consequat magna vulputate malesuada. Cras a ornare elit. Nulla viverra pharetra sem, eget
+							pulvinar neque pharetra ac. Lorem Ipsum convallis diam consequat magna vulputate malesuada. Cras a ornare elit. Nulla
+							viverra pharetra sem, eget pulvinar neque pharetra ac.
+
+						</p>
+						<div class="ab_button">
+							<a class="btn btn-primary btn-lg hvr-underline-from-left" href="#" role="button" data-toggle="modal" data-target="#myModal">Read More </a>
+						</div>
+
+
+					</div>
+
+					<div class="col-md-6 banner_bottom_grid help">
+						<img src="@routes.Assets.versioned("images/2.png")" alt=" " class="img-fluid">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+		<!-- testimonials -->
+	<section class="testimonials py-md-5">
+		<div class="container py-4 mt-2">
+			<h3 class="tittle-w3ls text-center mb-3 text-white">Customer Says</h3>
+				<p class="tit text-center mx-auto text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius eum inventore consectetur dolorum, voluptatum possimus temporibus vel ab, nesciunt quod!</p>
+
+			<div class="w3_agileits_testimonial_grids pt-4 mt-md-4">
+				<section class="slider">
+					<div class="flexslider">
+						<ul class="slides">
+							<li>
+								<div class="w3_agileits_testimonial_grid">
+									<div class="test-bg-w3ls">
+										<h4>Ema Wayans <span>Lorem Ipsum</span></h4>
+										<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+										dolore eu fugiat nulla pariatur.</p>
+									</div>
+									<img src="@routes.Assets.versioned("images/ts1.jpg")" alt=" " class="img-responsive" />
+
+								</div>
+							</li>
+							<li>
+								<div class="w3_agileits_testimonial_grid">
+									<div class="test-bg-w3ls">
+										<h4>Mark Rosy <span>Lorem Ipsum</span></h4>
+										<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+										dolore eu fugiat nulla pariatur.</p>
+									</div>
+									<img src="@routes.Assets.versioned("images/ts2.jpg")" alt=" " class="img-responsive" />
+								</div>
+							</li>
+							<li>
+								<div class="w3_agileits_testimonial_grid">
+									<div class="test-bg-w3ls">
+										<h4>Mario Andretti <span>Lorem Ipsum</span></h4>
+										<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+										dolore eu fugiat nulla pariatur.</p>
+									</div>
+									<img src="@routes.Assets.versioned("images/ts3.jpg")" alt=" " class="img-responsive" />
+								</div>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</div>
+		</div>
+	</section>
+<!-- //testimonials -->
 }
-@**************
-
-@main("Titulo da Proposta", "yes"){
-
-  <div class="row">
-
-    <div class="col-3 border-right">
-      <h3>Conta</h3>
-      <a href="#" class="menu-item">Informações da conta</a>
-      <a href="#" class="menu-item">Informações pessoais</a>
-      <a href="#" class="menu-item">Informações de segurança</a>
-      <h3>Anúncios</h3>
-      <a href="#" class="menu-item">Meus anúncios</a>
-      <a href="/propostas" class="menu-item">Propostas</a>
-    </div>
-    <div class="col-9">
-      <h2>Minhas propostas</h2>
-      <span>Últimas propostas que você recebeu</span>
-
-      <div class="row my-2">
-        <div class="col-12">
-          <table class="table table-hover">
-            <tbody>
-              <tr>
-                <th scope="row">#123</th>
-                <td><a href="/propostas/ver/3">Titulo do anuncio</a></td>
-                <td>por Usuário</td>
-                <td>feita em 00/00/2019 às 12:32</td>
-              </tr>
-              <tr>
-                <th scope="row">#99</th>
-                <td><a href="/propostas/ver/2">Titulo do anuncio</a></td>
-                <td>por Usuário</td>
-                <td>feita em 00/00/2019 às 10:23</td>
-              </tr>
-              <tr>
-                <th scope="row">#25</th>
-                <td><a href="/propostas/ver/3">Titulo do anuncio</a></td>
-                <td>por Usuário</td>
-                <td>feita em 00/00/2019 às 07:17</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-  </div>
-}
-*********@
