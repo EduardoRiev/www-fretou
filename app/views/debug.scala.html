@@ -1,0 +1,13 @@
+@()
+
+@*******************
+** UsuariosDB.allUsers().keySet() - Retorna os Emails
+** UsuariosDB.allUsers().values() - Retorna a instancia do tipo Usuario
+*******************@
+<a href="@routes.IndexController.index">Voltar ao inicio</a>
+
+<h3>Dados dos usuarios</h3>
+
+@for(d <- UsuariosDB.allUsers.values() ){
+  <li>[#@d.getId()] @d.getEmail() | @d.getSenha() | @d.getTipo()</li>
+}
