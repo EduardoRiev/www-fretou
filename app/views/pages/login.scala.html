@@ -1,0 +1,11 @@
+@(pagina: String, loggedIn: Boolean, userInfo: Usuario, formData: Form[views.helper.LoginForm])
+
+@import helper._
+
+@main(pagina, loggedIn, userInfo){
+  <div class="container my-5">
+    <div class="row">
+      @loginform(routes.IndexController.doLogin, formData("email"), formData("senha"))
+    </div>
+  </div>
+}

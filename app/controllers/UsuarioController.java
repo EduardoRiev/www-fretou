@@ -8,9 +8,21 @@ import javax.inject.Inject;
  */
 public class UsuarioController extends Controller {
 
+    @Security.Authenticated(Secured.class)
     public Result index() {
-        return ok(views.html.pages.usuario.inicio.render());
+        return ok(views.html.pages.usuario.inicio.render("Painel de Controle", Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx())));
     }
+
+    /**
+    * Logs out (only for authenticated users) and returns them to the Index page.
+    * @return A redirect to the Index page.
+    */
+    @Security.Authenticated(Secured.class)
+    public Result logout() {
+      session().clear();
+      return redirect(routes.IndexController.index());
+    }
+
 
    /*
     * @method: avaliar

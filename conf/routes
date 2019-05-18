@@ -4,8 +4,15 @@
 
 # An example controller showing a sample home page
 GET     /                           controllers.IndexController.index
+GET     /setup                      controllers.IndexController.setup
+GET     /debug                      controllers.IndexController.debug
 
 GET     /inicio                       controllers.HomeController.index
+
+GET   /login                        controllers.IndexController.login()
+POST   /login                      controllers.IndexController.doLogin()
+
+GET   /logout                   controllers.UsuarioController.logout()
 
 GET     /anuncios                       controllers.AnuncioController.index
 

@@ -1,0 +1,41 @@
+@(reverseRoute: play.api.mvc.Call, emailField: Field, passwordField: Field)
+
+<div class="col-12">
+  <div class="row">
+    <div class="col-6 text-center">
+      <h2 class="my-3">Acesse seu painel de controle</h2>
+      <div id="formLogin" class="my-3">
+      @helper.form(reverseRoute, 'role -> "form") {
+        <div class="form-group @if(emailField.hasErrors) {has-error}">
+          <input required id="@emailField.id" name="@emailField.name" value="@emailField.value.getOrElse("")" class="form-control" placeholder="E-mail" type="text">
+        </div>
+        <div class="form-group @if(passwordField.hasErrors) {has-error}" >
+          <input required id="@passwordField.id" name="@passwordField.name" value="@passwordField.value.getOrElse("")" class="form-control" placeholder="Senha" type="password">
+        </div>
+        <input class="btn btn-success" type="submit" value="Acessar">
+        @helper.CSRF.formField
+      }
+      </div>
+      @if(flash.containsKey("error")) {
+        <div id="error-message" class="text-danger">
+          @flash.get("error")
+        </div>
+      }
+    </div>
+    <div class="col-6 text-center">
+      <h2 class="my-3">Novo aqui? Crie uma nova conta</h2>
+      <div id="formCadastro" class="my-3">
+      @helper.form(routes.IndexController.index, 'role -> "form"){
+        <div class="form-group">
+          <input class="form-control" type="text" name="usuario" placeholder="Usuario">
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="text" name="email" placeholder="Email">
+        </div>
+        <button class="btn btn-secondary" type="button">Cadastrar</button>
+      }
+      </div>
+    </div>
+
+  </div>
+</div>
