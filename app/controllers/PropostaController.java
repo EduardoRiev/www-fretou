@@ -17,26 +17,26 @@ public class PropostaController extends Controller {
     * @result: Mostra a view com todos os dados do anúncio.
     * @http: GET
    */
-
+   @Security.Authenticated(Secured.class)
     public Result indexAguardando() {
 
         Set<Proposta> propostas = Proposta.filterByStatus(Proposta.STATUS_AGUARDANDO);
 
-        return ok(views.html.pages.propostas.render(propostas));
+        return ok(views.html.pages.propostas.render("Pagina", Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()), propostas));
     }
-
+    @Security.Authenticated(Secured.class)
     public Result indexAceitas() {
 
         Set<Proposta> propostas = Proposta.filterByStatus(Proposta.STATUS_ACEITA);
 
-        return ok(views.html.pages.propostas.render(propostas));
+        return ok(views.html.pages.propostas.render("Pagina", Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()), propostas));
     }
-
+    @Security.Authenticated(Secured.class)
     public Result indexRecusadas() {
 
         Set<Proposta> propostas = Proposta.filterByStatus(Proposta.STATUS_RECUSADA);
 
-        return ok(views.html.pages.propostas.render(propostas));
+        return ok(views.html.pages.propostas.render("Pagina", Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()), propostas));
     }
 
    /*
@@ -78,10 +78,10 @@ public class PropostaController extends Controller {
     * @result: Mostra a view com as informações de uma proposta específica para um anúncio.
     * @http: GET
    */
-
+    @Security.Authenticated(Secured.class)
     public Result ver(int proposta_id) {
         Proposta p = Proposta.findById(proposta_id);
-        return ok(views.html.pages.proposta.render(p));
+        return ok(views.html.pages.proposta.render("Pagina", Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()), p));
     }
 
    /*
@@ -90,14 +90,14 @@ public class PropostaController extends Controller {
     * @result: Função para pegar as informações do POST para responder uma proposta.
     * @http: POST
    */
-
+    @Security.Authenticated(Secured.class)
     public Result aceitarProposta(int proposta_id) {
         Proposta atual = Proposta.findById(proposta_id);
         assert atual != null;
         atual.aceitar();
         return redirect(routes.PropostaController.indexAceitas());
     }
-
+    @Security.Authenticated(Secured.class)
     public Result recusarProposta(int proposta_id) {
         Proposta atual = Proposta.findById(proposta_id);
         assert atual != null;

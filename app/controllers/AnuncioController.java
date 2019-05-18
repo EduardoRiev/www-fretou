@@ -16,7 +16,7 @@ public class AnuncioController extends Controller {
    */
 
     public Result index() {
-        return ok(views.html.pages.anuncios.render());
+        return ok(views.html.pages.anuncios.render("Anuncios", Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()), "extra..."));
     }
 
    /*
@@ -27,7 +27,7 @@ public class AnuncioController extends Controller {
    */
 
     public Result show(String slug) {
-        return ok(views.html.pages.anuncio.render(slug));
+        return ok(views.html.pages.anuncio.render("Anuncio!", Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()), slug));
     }
 
    /*

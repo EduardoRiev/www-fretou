@@ -1,5 +1,6 @@
-@()
-@main("www-fretou","yes") {
+@(pagina: String, loggedIn: Boolean, userInfo: Usuario, slug: String)
+
+@main(pagina, loggedIn, userInfo){
   <!-- banner -->
 	<section class="banner-silder">
 		<div id="JiSlider" class="jislider">

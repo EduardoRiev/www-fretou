@@ -4,12 +4,12 @@
 * two arguments, a `String` for the title of the page and an `Html`
 * object to insert into the body of the page.
 *@
-@(title: String,loggedIn: String)(content: Html)
+@(pagina: String, loggedIn: Boolean, userInfo: Usuario)(content: Html)
 <!DOCTYPE html>
 <html lang="pt">
 
 <head>
-  <title>@title</title>
+  <title>Fretou | @pagina</title>
   <!-- for-mobile-apps -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8" />

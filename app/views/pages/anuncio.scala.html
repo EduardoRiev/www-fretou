@@ -1,6 +1,6 @@
-@(slug: String)
+@(pagina: String, loggedIn: Boolean, userInfo: Usuario, slug: String)
 
-@main("Título do Anuncio", "no"){
+@main(pagina, loggedIn, userInfo){
   <div class="container my-5">
     <div class="row">
 

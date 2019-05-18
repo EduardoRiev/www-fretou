@@ -1,6 +1,6 @@
+@(pagina: String, loggedIn: Boolean, userInfo: Usuario, slug: String)
 @r = @{new java.util.Random}
-
-@main("Fretou - Todos os anuncios","no") {
+@main(pagina, loggedIn, userInfo){
 
   <!-- smooth-shipping -->
   <section class="wthree-row w3-about py-md-5">

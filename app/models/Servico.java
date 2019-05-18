@@ -1,3 +1,5 @@
+package models;
+
 public class Servico {
 
   private int id;
