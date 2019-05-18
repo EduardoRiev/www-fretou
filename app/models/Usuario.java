@@ -1,12 +1,20 @@
+package models;
+
 public class Usuario {
 
-  private int id;
-  private String tipo;
+  protected int id;
+  protected String tipo;
+  protected String email;
+  protected String senha;
 
+  public Usuario(){
 
-  public Usuario(int id, String tipo){
+  }
+  public Usuario(int id, String email, String senha, String tipo){
     this.id = id;
     this.tipo = tipo;
+    this.email = email;
+    this.senha = senha;
   }
 
   public void setId(int id){
@@ -22,6 +30,20 @@ public class Usuario {
 
   public String getTipo(){
     return this.tipo;
+  }
+
+  public String getEmail(){
+    return this.email;
+  }
+
+  public void setEmail(String email){
+    this.email = email;
+  }
+  public String getSenha(){
+    return this.senha;
+  }
+  public void setSenha(String senha){
+    this.senha = senha;
   }
 
 }
