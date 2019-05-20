@@ -8,18 +8,20 @@ public class Proposta {
   public static String STATUS_AGUARDANDO = "aguardando";
   public static String STATUS_RECUSADA = "recusada";
 
+  public static int lastInsertedId = 1;
+
   public int id;
   public String status;
   public String descricao;
   public int usuario_id;
-  public int anuncio_id;
+  public Anuncio anuncio;
 
   public Proposta(int id, String status, String descricao,int usuario_id, int anuncio_id){
-    this.id = id;
+    this.id = id + Proposta.lastInsertedId++;
     this.status = status;
     this.usuario_id = usuario_id;
     this.descricao = descricao;
-    this.anuncio_id = anuncio_id;
+    this.anuncio = Anuncio.findById(anuncio_id);
   }
 
   public Proposta() {
@@ -62,7 +64,7 @@ public class Proposta {
 
   public Anuncio anuncio()
   {
-    return Anuncio.findById(this.anuncio_id);
+    return anuncio;
   }
 
   private static Set<Proposta> propostas;

@@ -81,7 +81,7 @@ public class PropostaController extends Controller {
 
 
         Proposta p = new Proposta(id + 2, Proposta.STATUS_AGUARDANDO,
-                propostaForm.field("descricao").value(), anuncio.usuario_id, anuncio.id);
+                propostaForm.get().getDescricao(), anuncio.usuario_id, anuncio.id);
 
         anuncio.addProposta(p);
         Proposta.all().add(p);
