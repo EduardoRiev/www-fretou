@@ -11,3 +11,4 @@
 @for(d <- UsuariosDB.allUsers.values() ){
   <li>[#@d.getId()] @d.getEmail() | @d.getSenha() | @d.getTipo()</li>
 }
+<h1>Sessão (email): @session.get("email")</h1>
