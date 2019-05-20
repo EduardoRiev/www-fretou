@@ -10,12 +10,20 @@ public class Proposta {
 
   public int id;
   public String status;
+  public String descricao;
   public int usuario_id;
+  public int anuncio_id;
 
-  public Proposta(int id, String status, int usuario_id){
+  public Proposta(int id, String status, String descricao,int usuario_id, int anuncio_id){
     this.id = id;
     this.status = status;
     this.usuario_id = usuario_id;
+    this.descricao = descricao;
+    this.anuncio_id = anuncio_id;
+  }
+
+  public Proposta() {
+    this.status = STATUS_AGUARDANDO;
   }
 
   public void setId(int id){
@@ -48,16 +56,25 @@ public class Proposta {
     return this.usuario_id;
   }
 
+  public void setDescricao(String descricao) { this.descricao = descricao; }
+
+  public String getDescricao() { return this.descricao; }
+
+  public Anuncio anuncio()
+  {
+    return Anuncio.findById(this.anuncio_id);
+  }
+
   private static Set<Proposta> propostas;
 
   static {
     propostas = new HashSet<>();
-    propostas.add(new Proposta(1, STATUS_AGUARDANDO, 1) );
-    propostas.add(new Proposta(3,STATUS_AGUARDANDO, 2531) );
-    propostas.add(new Proposta(46,STATUS_AGUARDANDO, 2031) );
-    propostas.add(new Proposta(16,STATUS_AGUARDANDO, 221) );
-    propostas.add(new Proposta(543,STATUS_AGUARDANDO, 2135) );
-    propostas.add(new Proposta(21,STATUS_AGUARDANDO, 3234) );
+    propostas.add(new Proposta(1, STATUS_AGUARDANDO, "Lorem Ipsum",1, 1) );
+    propostas.add(new Proposta(3,STATUS_AGUARDANDO, "Lorem Ipsum", 1, 3) );
+    propostas.add(new Proposta(46,STATUS_AGUARDANDO, "Lorem Ipsum", 1, 46) );
+    propostas.add(new Proposta(16,STATUS_AGUARDANDO, "Lorem Ipsum", 1, 16) );
+    propostas.add(new Proposta(543,STATUS_AGUARDANDO, "Lorem Ipsum", 1, 543) );
+    propostas.add(new Proposta(21,STATUS_AGUARDANDO, "Lorem Ipsum", 1, 21) );
   }
 
   public static Set<Proposta> all() {

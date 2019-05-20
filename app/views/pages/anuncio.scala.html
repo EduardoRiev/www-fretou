@@ -1,35 +1,76 @@
-@(pagina: String, loggedIn: Boolean, userInfo: Usuario, slug: String)
+@(anuncio: Anuncio, propostaForm: Form[Proposta])
+@import helper._
 
-@main(pagina, loggedIn, userInfo){
-  <div class="container my-5">
-    <div class="row">
+@scripts = {
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@@8"></script>
+<script type="text/javascript">
 
-      <div class="col-12">
-        <div class="row">
-          <div class="col-6 text-center">
-            <h2>Titulo do anuncio</h2>
-            <span>#id por Usuário</span> <br>
-            Publicado em 00/00/2019
-          </div>
-          <div class="col-6 text-center">
-            <h3>Valor sugerido: R$ 123</h3>
-            <button class="btn btn-lg btn-secondary" type="button">Enviar proposta</button>
-          </div>
+    function showPropostaForm() {
+    let el = document.querySelector('#propostaForm');
+    el.classList.toggle("d-none");
+    }
 
+    function submeterProposta(event) {
+    event.preventDefault();
+    let formulario = document.getElementById("formProposta")
+      Swal.fire({
+      title: 'Você tem certeza?',
+      text: "Ao clicar em confirmar, a sua proposta será enviada!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim, enviar!'
+    }).then((result) => {
+      if (result.value) {
+        formulario.submit();
+      }
+    });
+    }
+
+    document.getElementById('enviar-proposta-button').addEventListener('click', submeterProposta, false);
+  </script>
+
+}
+
+@main("Título do Anuncio","no", scripts){
+  <div class="row">
+
+    <div class="col-12">
+      <div class="row">
+        <div class="col-6 text-center">
+          <h2>@anuncio.getTitulo()</h2>
+          <span>Por @anuncio.getUsuarioId (Id do Usuário)</span> <br>
+          Publicado em 00/00/2019
         </div>
-        <div class="row">
-          <div class="col-12 my-3">
-            <img src="https://placehold.it/500x260" class="mx-4">
-            <img src="https://placehold.it/500x260" class="mx-4">
+        <div class="col-6 text-center">
+          <h3>Valor sugerido: R$ 123</h3>
+          <button class="btn btn-lg btn-secondary" type="button" onclick="showPropostaForm()">Adicionar proposta</button>
+        </div>
+        <div class="col-12 d-none" id="propostaForm">
+          <h3>Formulário de envio de propostas</h3>
+
+          @helper.form(action = routes.PropostaController.realizar(anuncio.getId()), 'id -> "formProposta") {
+          <div class="form-group">
+            <label for="descricao">Descrição</label>
+            <textarea name="descricao" id="descricao" cols="30" rows="10" class="form-control"></textarea>
           </div>
-          <div class="col-12 text-justify">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ornare bibendum libero, at pretium quam. Integer rutrum fringilla odio bibendum aliquet. Morbi accumsan, urna et rutrum molestie, justo odio vulputate libero, eu sollicitudin justo ex eget dui. Ut varius tortor ullamcorper nibh mattis, quis dapibus eros blandit. Integer eu vestibulum magna. Ut pulvinar libero vitae efficitur eleifend. Cras ut neque nec velit semper pellentesque ut ac lacus. Quisque lorem risus, pretium eget nisl in, ornare porttitor ante.</p>
-            <p>Curabitur posuere, elit vitae commodo cursus, odio ante pulvinar erat, ut lobortis urna quam id nunc. Nullam pharetra et risus sed egestas. Maecenas elementum ex sed purus blandit posuere. Nulla facilisi. Vivamus malesuada quam sed nisl congue gravida. Donec consequat neque non nunc ornare, eu porta arcu fermentum. Quisque non massa sed nisi efficitur volutpat. Quisque ac nibh hendrerit, placerat diam ac, pretium mi. Cras viverra dui nibh, vitae ornare est vehicula quis. Mauris porta blandit mi id mattis.</p>
-            <p>Aenean egestas non diam id semper. Morbi congue erat at consectetur convallis. Aenean elementum erat eu nisi pretium, in pellentesque leo sodales. Sed eleifend eu libero non varius. Donec ac sapien elit. Vivamus vel ornare felis. Ut ultrices elit luctus, lobortis orci eu, suscipit velit. Fusce nulla metus, vulputate at sem in, iaculis pulvinar massa. Vivamus hendrerit urna a pretium posuere. Quisque ornare, nisi a accumsan vulputate, tellus quam euismod augue, sit amet mollis libero nunc eu dui. Phasellus iaculis lorem magna, quis placerat lacus sodales imperdiet. Vestibulum consectetur metus at est consequat suscipit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum non tellus sed dictum. Mauris hendrerit nisl augue, id pulvinar quam fringilla a. </p>
-          </div>
+
+          <button class="btn btn-primary" id="enviar-proposta-button">Enviar proposta</button>
+          }
         </div>
       </div>
-
+      <div class="row">
+        <div class="col-12 my-3">
+          <img src="https://placehold.it/500x260" class="mx-4">
+          <img src="https://placehold.it/500x260" class="mx-4">
+        </div>
+        <div class="col-12 text-justify">
+          <p>@anuncio.getDescricao()</p>
+        </div>
+      </div>
     </div>
+
   </div>
 }
+

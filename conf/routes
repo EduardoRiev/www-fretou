@@ -24,13 +24,14 @@ GET     /anuncios/edit/:id                       controllers.AnuncioController.e
 
 PATCH     /anuncios/edit/:id                       controllers.AnuncioController.update(id: Integer)
 
-GET     /anuncios/:slug                       controllers.AnuncioController.show(slug: String)
+GET     /anuncio/:id                       controllers.AnuncioController.show(id: Integer)
 
 GET     /anuncios/acompanhar/:id                       controllers.PropostaController.acompanhar(id: Integer)
 
 GET     /anuncios/:id/proposta                       controllers.PropostaController.verPropostas(id: Integer)
 
-POST     /anuncios/:id/proposta                       controllers.AnuncioController.realizar(id: Integer)
++ nocsrf
+POST     /anuncios/:id/proposta                       controllers.PropostaController.realizar(id: Integer)
 
 GET   /usuario                                      controllers.UsuarioController.index
 

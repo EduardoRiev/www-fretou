@@ -1,12 +1,21 @@
 package controllers;
 
+import models.Anuncio;
+import models.Proposta;
+import play.data.Form;
+import play.data.FormFactory;
 import play.mvc.*;
 import javax.inject.Inject;
+import java.util.Set;
+
 /**
  * This controller contains an action to handle HTTP requests
  * to the application's home page.
  */
 public class AnuncioController extends Controller {
+
+    @Inject
+    FormFactory formFactory;
 
    /*
     * @method: index
@@ -16,7 +25,10 @@ public class AnuncioController extends Controller {
    */
 
     public Result index() {
-        return ok(views.html.pages.anuncios.render("Anuncios", Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()), "extra..."));
+
+        Set<Anuncio> anuncios = Anuncio.all();
+
+        return ok(views.html.pages.anuncios.render(anuncios));
     }
 
    /*
@@ -26,8 +38,10 @@ public class AnuncioController extends Controller {
     * @http: GET
    */
 
-    public Result show(String slug) {
-        return ok(views.html.pages.anuncio.render("Anuncio!", Secured.isLoggedIn(ctx()), Secured.getUserInfo(ctx()), slug));
+    public Result show(int id) {
+        Form propostaForm = formFactory.form(Proposta.class);
+
+        return ok(views.html.pages.anuncio.render(Anuncio.findById(id), propostaForm));
     }
 
    /*

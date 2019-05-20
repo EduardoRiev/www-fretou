@@ -1,5 +1,8 @@
 package controllers;
 
+import models.Anuncio;
+import play.data.Form;
+import play.data.FormFactory;
 import play.mvc.*;
 import javax.inject.Inject;
 import java.util.*;
@@ -10,6 +13,9 @@ import models.Proposta;
  * to the application's home page.
  */
 public class PropostaController extends Controller {
+
+    @Inject
+    FormFactory formFactory;
 
    /*
     * @method: index
@@ -69,7 +75,17 @@ public class PropostaController extends Controller {
    */
 
     public Result realizar(int id) {
-        return ok("Handling HTTP POST to send a proposta.");
+        Anuncio anuncio = Anuncio.findById(id);
+        assert anuncio != null;
+        Form<Proposta> propostaForm = formFactory.form(Proposta.class).bindFromRequest();
+
+
+        Proposta p = new Proposta(id + 2, Proposta.STATUS_AGUARDANDO,
+                propostaForm.field("descricao").value(), anuncio.usuario_id, anuncio.id);
+
+        anuncio.addProposta(p);
+        Proposta.all().add(p);
+        return redirect(routes.AnuncioController.index());
     }
 
    /*
