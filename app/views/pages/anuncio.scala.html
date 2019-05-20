@@ -1,4 +1,4 @@
-@(anuncio: Anuncio, propostaForm: Form[Proposta])
+@(pagina: String, loggedIn: Boolean, userInfo: Usuario, anuncio: Anuncio, propostaForm: Form[Proposta])
 @import helper._
 
 @scripts = {
@@ -33,7 +33,7 @@
 
 }
 
-@main("Título do Anuncio","no", scripts){
+@main(pagina, loggedIn, userInfo, scripts){
   <div class="row">
 
     <div class="col-12">

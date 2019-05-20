@@ -1,6 +1,6 @@
-@(anuncios: Set[Anuncio])
+@(pagina: String, loggedIn: Boolean, userInfo: Usuario, anuncios: Set[Anuncio])
 
-@main("Anúncio", "yes"){
+@main(pagina, loggedIn, userInfo){
 
 <div class="row">
 

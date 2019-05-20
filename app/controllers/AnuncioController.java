@@ -28,7 +28,8 @@ public class AnuncioController extends Controller {
 
         Set<Anuncio> anuncios = Anuncio.all();
 
-        return ok(views.html.pages.anuncios.render(anuncios));
+        return ok(views.html.pages.anuncios.render("Anúncios", Secured.isLoggedIn(ctx()),
+                Secured.getUserInfo(ctx()),anuncios));
     }
 
    /*
@@ -41,7 +42,8 @@ public class AnuncioController extends Controller {
     public Result show(int id) {
         Form propostaForm = formFactory.form(Proposta.class);
 
-        return ok(views.html.pages.anuncio.render(Anuncio.findById(id), propostaForm));
+        return ok(views.html.pages.anuncio.render("Visualizar Anúncio", Secured.isLoggedIn(ctx()),
+                Secured.getUserInfo(ctx()),Anuncio.findById(id), propostaForm));
     }
 
    /*

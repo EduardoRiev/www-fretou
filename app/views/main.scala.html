@@ -4,7 +4,7 @@
 * two arguments, a `String` for the title of the page and an `Html`
 * object to insert into the body of the page.
 *@
-@(pagina: String, loggedIn: Boolean, userInfo: Usuario)(content: Html)
+@(pagina: String, loggedIn: Boolean, userInfo: Usuario, scripts: Html = Html(""))(content: Html)
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -53,7 +53,7 @@
   * the page content. *@
     @content
 
-  @components.footer()
+  @components.footer(scripts)
   </body>
 
   </html>
