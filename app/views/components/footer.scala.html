@@ -95,17 +95,20 @@
   </div>
 </div>
 </section>
-<p class="copy-right py-3">&copy 2018 Shipping. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+<p class="copy-right py-3">&copy; 2018 Shipping. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
 <!-- //footer -->
 </footer>
 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
 <!-- js -->
-<script src="@routes.Assets.versioned("javascripts/jquery-2.2.3.min.js")"></script>
+<!-- <script src="@routes.Assets.versioned("javascripts/jquery-2.2.3.min.js")"></script> -->
 <!-- //js-->
 <!--banner-slider-->
 <script src="@routes.Assets.versioned("javascripts/JiSlider.js")"></script>
 <script>
-  $(window).load(function () {
+  $(window).ready(function () {
     $('#JiSlider').JiSlider({
       color: '#fff',
       start: 1,
@@ -117,7 +120,7 @@
 <!-- flexSlider -->
 <script defer src="@routes.Assets.versioned("javascripts/jquery.flexslider.js")"></script>
 <script type="text/javascript">
-  $(window).load(function(){
+  $(window).ready(function(){
     $('.flexslider').flexslider({
       animation: "slide",
       start: function(slider){
@@ -164,6 +167,9 @@
     */
 
     $().UItoTop({
+      containerID: 'toTop', // fading element id
+      containerHoverID: 'toTopHover', // fading element hover id
+      scrollSpeed: 1200,
       easingType: 'easeOutQuart'
     });
 
@@ -173,5 +179,6 @@
 <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script src="@routes.Assets.versioned("javascripts/bootstrap.js")"></script>
+  <!-- <script src="@routes.Assets.versioned("javascripts/bootstrap.js")"></script> -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 @scripts
