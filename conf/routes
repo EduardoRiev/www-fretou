@@ -15,7 +15,7 @@ POST     /anuncios/create                       controllers.AnuncioController.st
 
 GET     /anuncios/edit/:id                       controllers.AnuncioController.edit(id: Integer)
 
-PATCH     /anuncios/edit/:id                       controllers.AnuncioController.update(id: Integer)
+POST     /anuncios/edit/:id                       controllers.AnuncioController.update(id: Integer)
 
 GET     /anuncio/:id                       controllers.AnuncioController.show(id: Integer)
 
