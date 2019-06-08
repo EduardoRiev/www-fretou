@@ -100,7 +100,10 @@ public class AnuncioController extends Controller {
    */
 
     public Result edit(int id) {
-        return ok("Handling HTTP GET to show the view to edit an anuncio.");
+        if(Anuncio.findById(id) == null)
+              return redirect(routes.AnuncioController.index());
+
+        return ok(views.html.pages.editarAnuncio.render(Anuncio.findById(id), Anuncio.CATEGORIAS, Usuario.filterByTipo(Usuario.TIPO_CONTRATANTE)));
     }
 
    /*
@@ -111,7 +114,27 @@ public class AnuncioController extends Controller {
    */
 
     public Result update(int id) {
-        return ok("Handling HTTP PATCH to update an anuncio.");
+
+      DynamicForm anuncioForm = formFactory.form().bindFromRequest();
+
+      //Date data = new SimpleDateFormat("yyyy-MM-dd").parse(anuncioForm.get("data").toString());
+      Date data = new Date(System.currentTimeMillis());
+
+      Anuncio anuncio = Anuncio.find.byId(new Double(id));
+
+      anuncio.titulo = anuncioForm.get("titulo");
+      anuncio.categoria = anuncioForm.get("categoria");
+      anuncio.valor = Double.parseDouble(anuncioForm.get("valor"));
+      anuncio.peso = Double.parseDouble(anuncioForm.get("peso"));
+      anuncio.descricao = anuncioForm.get("descricao");
+      anuncio.origem = anuncioForm.get("origem");
+      anuncio.destino = anuncioForm.get("destino");
+      anuncio.usuario_id = Integer.parseInt(anuncioForm.get("usuario_id"));
+
+      anuncio.update();
+
+      //return ok("Anuncio: "+ a.titulo );
+      return redirect(routes.AnuncioController.show(id));
     }
 
     /*
