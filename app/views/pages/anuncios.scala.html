@@ -1,4 +1,5 @@
-@(anuncios: List[Anuncio])
+@(anuncios: List[Anuncio], cat: String = "nulo")
+@import helper._
 
 @main("Anúncio", "yes"){
 
@@ -8,23 +9,23 @@
       <p class="tit text-center mx-auto">Anúncios do sistema</p>
       <div class="row mt-2">
         <div class="col-12">
-          <form class="form-inline">
+          @helper.form(action = routes.AnuncioController.buscar, 'id -> "formBusca", 'class -> "form-inline"){
             <div class="input-group col-10">
-              <input type="text" class="form-control" aria-label="Realizar busca">
+              <input name="val" type="text" class="form-control" aria-label="Realizar busca">
               <div class="input-group-append">
-                <select class="form-control">
-                  <option>Filtrar por:</option>
-                  <option>Titulo</option>
-                  <option>Categoria</option>
-                  <option>Cidade Origem</option>
-                  <option>Cidade Destino</option>
+                <select name="t" class="form-control">
+                  <option value="">Filtrar por:</option>
+                  <option @if(cat.equals("title")){selected} value="title">Titulo</option>
+                  <option @if(cat.equals("cat")){selected} value="cat">Categoria</option>
+                  <option @if(cat.equals("cityo")){selected} value="cityo">Cidade Origem</option>
+                  <option @if(cat.equals("cityd")){selected} value="cityd">Cidade Destino</option>
                 </select>
               </div>
             </div>
             <div class="input-group">
               <button type="submit" class="btn btn-primary">Pesquisar</button>
             </div>
-          </form>
+          }
         </div>
       </div>
       <div class="row mt-2">
