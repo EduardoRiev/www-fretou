@@ -1,0 +1,81 @@
+@(anuncio: Anuncio, categorias: Array[String], usuarios: Set[Usuario])
+
+@main("Anuncio #"+ anuncio.id +" | Editar anuncio","no"){
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12">
+
+            <h2>Editar Anuncio [#@anuncio.id]</h2>
+            @helper.form(action = routes.AnuncioController.update(anuncio.id), 'id -> "formAnuncio", 'class -> "mt-2"){
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="titulo">Título</label>
+                        <input type="text" name="titulo" id="titulo" class="form-control" placeholder="Insira o titulo do anuncio" value="@anuncio.titulo">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="categoria">Categoria</label>
+                        <select class="custom-select" id="categoria" name="categoria">
+                            <option disabled>Selecione uma opção...</option>
+                            @for(categoria <- categorias) {
+                            <option @if( categoria.toLowerCase().equals( anuncio.categoria) ){selected} value="@categoria">@categoria.capitalize</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="usuario_id">Usuário</label>
+                        <select class="custom-select" id="usuario_id" name="usuario_id">
+                            <option selected disabled>Selecione uma opção...</option>
+                            @for(usuario <- usuarios) {
+                            <option @if( usuario.getId().equals( anuncio.usuario_id) ){selected} value="@usuario.getId()">@usuario.getNome()</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="descricao">Descrição</label>
+                        <textarea name="descricao" id="descricao" cols="30" rows="10" class="form-control">@anuncio.descricao</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="valor">Valor</label>
+                        <input type="number" name="valor" id="valor" class="form-control" placeholder="Valor estimado do Anúncio" value="@anuncio.valor">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="destino">Peso</label>
+                        <input type="number" name="peso" id="peso" class="form-control" placeholder="Peso da Carga do Anúncio" value="@anuncio.peso">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="origem">Origem</label>
+                        <input type="text" name="origem" id="origem" class="form-control" placeholder="Origem da Entrega" value="@anuncio.origem">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="destino">Destino</label>
+                        <input type="text" name="destino" id="destino" class="form-control" placeholder="Destino da Entrega" value="@anuncio.destino">
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary" id="enviar-proposta-button">Editar Anúncio</button>
+            }
+        </div>
+    </div>
+</div>
+}

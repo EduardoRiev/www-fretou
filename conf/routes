@@ -9,13 +9,15 @@ GET     /inicio                       controllers.HomeController.index
 
 GET     /anuncios                       controllers.AnuncioController.index
 
+GET     /anuncios/buscar                       controllers.AnuncioController.buscar
+
 GET     /anuncios/create                       controllers.AnuncioController.create
 
 POST     /anuncios/create                       controllers.AnuncioController.store
 
 GET     /anuncios/edit/:id                       controllers.AnuncioController.edit(id: Integer)
 
-PATCH     /anuncios/edit/:id                       controllers.AnuncioController.update(id: Integer)
+POST     /anuncios/edit/:id                       controllers.AnuncioController.update(id: Integer)
 
 GET     /anuncio/:id                       controllers.AnuncioController.show(id: Integer)
 

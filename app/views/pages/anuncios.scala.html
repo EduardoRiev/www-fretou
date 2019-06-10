@@ -1,8 +1,9 @@
-@(anuncios: List[Anuncio])
+@(anuncios: List[Anuncio], cat: String = "nulo")
+@import helper._
 
 @main("Anúncio", "yes"){
 
-<section class="wthree-row w3-about py-md-5">
+  <section class="wthree-row w3-about py-md-5">
     <div class="container py-4 mt-2">
         <h3 class="tittle-w3ls text-center mb-3">Anúncios</h3>
         <p class="tit text-center mx-auto">Anúncios do sistema</p>
@@ -27,31 +28,49 @@
                     </div>
                 </div>
             </div>
-            @if(index % 3 == 0) {
-<!--            </div>-->
-<!--            <div class="card-deck pt-4 mt-md-4">-->
-                }
-            }
+            <div class="input-group">
+              <button type="submit" class="btn btn-primary">Pesquisar</button>
+            </div>
+          }
         </div>
+      </div>
+      <div class="row mt-2">
+        @for((anuncio, index) <- anuncios.zipWithIndex){
+          <div class="card col-4 mt-2 border-0">
+            <img src='@routes.Assets.versioned("images/g1.jpg")' class="img-fluid" alt="Anúncio - @anuncio.titulo">
+            <div class="card-body w3ls-card">
+              <h5 class="card-title">@anuncio.titulo</h5>
+              <p class="card-text mb-3">Localização - UF <br /></p>
+              <div class="ab_button">
+                <a href="@routes.AnuncioController.show(anuncio.id)" class="btn btn-primary btn-lg hvr-underline-from-left">Ver anúncio</a>
+              </div>
+            </div>
+          </div>
+          @if(index % 3 == 0) {
+            <!--            </div>-->
+            <!--            <div class="card-deck pt-4 mt-md-4">-->
+          }
+        }
+      </div>
     </div>
-</section>
-<!--<div class="row">-->
+  </section>
+  <!--<div class="row">-->
 
-<!--&lt;!&ndash;    <div id="sidebar" class="col-3 border-right">&ndash;&gt;-->
-<!--&lt;!&ndash;        <h3>Conta</h3>&ndash;&gt;-->
-<!--&lt;!&ndash;        <a href="#" class="menu-item">Informações da conta</a>&ndash;&gt;-->
-<!--&lt;!&ndash;        <a href="#" class="menu-item">Informações pessoais</a>&ndash;&gt;-->
-<!--&lt;!&ndash;        <a href="#" class="menu-item">Informações de segurança</a>&ndash;&gt;-->
-<!--&lt;!&ndash;        <h3>Anúncios</h3>&ndash;&gt;-->
-<!--&lt;!&ndash;        <a href="#" class="menu-item">Meus anúncios</a>&ndash;&gt;-->
-<!--&lt;!&ndash;        <a href="/usuario/propostas" class="menu-item">Propostas</a>&ndash;&gt;-->
-<!--&lt;!&ndash;    </div>&ndash;&gt;-->
-<!--    <div class="col-12">-->
-<!--        <h2>Anúncios</h2>-->
-<!--        <div class="row">-->
-<!--        </div>-->
-<!--    </div>-->
+  <!--&lt;!&ndash;    <div id="sidebar" class="col-3 border-right">&ndash;&gt;-->
+  <!--&lt;!&ndash;        <h3>Conta</h3>&ndash;&gt;-->
+  <!--&lt;!&ndash;        <a href="#" class="menu-item">Informações da conta</a>&ndash;&gt;-->
+  <!--&lt;!&ndash;        <a href="#" class="menu-item">Informações pessoais</a>&ndash;&gt;-->
+  <!--&lt;!&ndash;        <a href="#" class="menu-item">Informações de segurança</a>&ndash;&gt;-->
+  <!--&lt;!&ndash;        <h3>Anúncios</h3>&ndash;&gt;-->
+  <!--&lt;!&ndash;        <a href="#" class="menu-item">Meus anúncios</a>&ndash;&gt;-->
+  <!--&lt;!&ndash;        <a href="/usuario/propostas" class="menu-item">Propostas</a>&ndash;&gt;-->
+  <!--&lt;!&ndash;    </div>&ndash;&gt;-->
+  <!--    <div class="col-12">-->
+  <!--        <h2>Anúncios</h2>-->
+  <!--        <div class="row">-->
+  <!--        </div>-->
+  <!--    </div>-->
 
-<!--</div>-->
+  <!--</div>-->
 
 }

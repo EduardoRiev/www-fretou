@@ -39,7 +39,7 @@
     <div class="col-12">
       <div class="row">
         <div class="col-6 text-center">
-          <h2>@anuncio.titulo</h2>
+          <h2>@anuncio.titulo <a href="@routes.AnuncioController.edit(anuncio.id)" alt="Editar" title="Editar"><i class="fas fa-pencil-alt"></i></a></h2>
           <span>Usuário #@anuncio.usuario_id (Id do Usuário)</span>
           <p>Publicado em @anuncio.data</p>
           <h4>Peso @anuncio.peso</h4><br>

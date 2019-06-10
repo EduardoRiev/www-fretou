@@ -46,4 +46,23 @@ public class Anuncio extends Model {
 
     public static Finder<Integer, Anuncio> find = new Finder<>(Anuncio.class);
 
+    public static List<Anuncio> filtro(String c, String v){
+      List<Anuncio> anuncios = Anuncio.find.all();
+      List<Anuncio> an = new ArrayList<Anuncio>();
+      String busca = null;
+      for(Anuncio anun: anuncios){
+        switch(c){
+          case "title": busca = anun.titulo.toLowerCase();break;
+          case "cat": busca = anun.categoria.toLowerCase();break;
+          case "cityo": busca = anun.origem.toLowerCase();break;
+          case "cityd": busca = anun.destino.toLowerCase();break;
+          default:busca = anun.titulo.toLowerCase();break;
+        }
+        
+        if(busca.contains(v.toLowerCase()))
+          an.add(anun);
+      }
+      return an;
+    }
+
 }
