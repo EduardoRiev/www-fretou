@@ -4,21 +4,23 @@
 <div class="container my-5">
   <div class="row">
 
-    <div id="sidebar" class="col-3 border-right">
-      <h3>Conta</h3>
-      <a href="#" class="menu-item">Informações da conta</a>
-      <a href="#" class="menu-item">Informações pessoais</a>
-      <a href="#" class="menu-item">Informações de segurança</a>
-      <h3>Anúncios</h3>
-      <a href="#" class="menu-item">Meus anúncios</a>
-      <a href="/usuario/propostas" class="menu-item">Propostas</a>
-    </div>
+     <div id="sidebar" class="col-3 border-right" style="text-align: justify-all;">
+      <ul class="list-group">
+      <li class="list-group-item list-group-item-warning" style="background-color: #ffdc39;"><h3 style="color: black;">Conta</h3></li>
+      <li><a href="#" class="menu-item ml-3">Informações da conta</a></li>
+      <li><a href="#" class="menu-item ml-3">Informações pessoais</a></li>
+      <li><a href="#" class="menu-item ml-3">Informações de segurança</a></li>
+      <li class="list-group-item list-group-item-warning" style="background-color: #ffdc39;" ><h3 style="color: black;">Anúncios</h3></li>
+      <li><a href="#" class="menu-item ml-3">Meus anúncios</a></li>
+      <li><a href="/usuario/propostas" class="menu-item ml-3">Propostas</a></li>
+      </ul>
+</div>
     <div class="col-9">
       <h2>#@p.id - @p.anuncio.titulo</h2>
       <div class="row">
         <div class="col-12">
-          <p class="lead text-justify">@p.descricao</p>
-            <span class="proposta-detalhes">Proposta enviada por <b>Usuario</b> em <b>@p.getData()</b></span>
+            <span class="proposta-detalhes text-muted">Proposta enviada por <b>Usuario</b> em <b>@p.getData()</b></span><br><br>
+            <p class="lead text-justify">@p.descricao</p>
             <div class="row mt-3">
             <form action='/usuario/propostas/responder/@p.id/aceitar' method="post" ><button class="btn btn-success btn-aceitar-proposta ml-3">Aceitar proposta</button></form>
             <form action='/usuario/propostas/responder/@p.id/recusar' method="post" class="float-right"><button class="btn btn-danger btn-recusar-proposta ml-3">Recusar proposta</button></form>

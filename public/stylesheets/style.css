@@ -13,9 +13,9 @@ body {
 
 p {
     margin: 0;
-    color:red;
+    color:black;
     font-size: 15px;
-    line-height: 1.8;
+    line-height: 1.5;
 }
 
 h1,
@@ -98,7 +98,7 @@ header h1 a {
 	font-size: 12px;
 	letter-spacing: 5px;
 	word-spacing: 5px;
-	font-family: 'Rubik', sans-serif;
+	font-family: 'Lobster', cursive;
 }
 li.nav-item {
 	font-weight: 600;
@@ -1580,4 +1580,13 @@ h3.tittle-w3ls {
 .btn-aceitar-proposta:hover {
     background-color: white;
     color: green;
+}
+
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23745' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23745' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
 }
