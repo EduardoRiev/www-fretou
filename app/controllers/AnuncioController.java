@@ -47,7 +47,7 @@ public class AnuncioController extends Controller {
     public Result show(Integer id) {
         Form propostaForm = formFactory.form(Proposta.class);
 
-        return ok(views.html.pages.anuncio.render(Anuncio.find.byId(id.doubleValue()), propostaForm));
+        return ok(views.html.pages.anuncio.render(Anuncio.find.byId(id), propostaForm));
     }
 
    /*

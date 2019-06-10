@@ -14,13 +14,15 @@
       <a href="/usuario/propostas" class="menu-item">Propostas</a>
     </div>
     <div class="col-9">
-      <h2>#@p.getId() - @p.anuncio().titulo</h2>
+      <h2>#@p.id - @p.anuncio.titulo</h2>
       <div class="row">
         <div class="col-12">
-          <span class="proposta-detalhes">Proposta enviada por <b>Usuario</b> em <b>@p.getData()</b></span>
-          <p class="text-justify">@p.getDescricao()</p>
-          <form action='/usuario/propostas/responder/@p.getId()/aceitar' method="post"><button class="btn btn-success">Aceitar proposta</button></form>
-          <form action='/usuario/propostas/responder/@p.getId()/recusar' method="post"><button class="btn btn-danger">Recusar proposta</button></form>
+          <p class="lead text-justify">@p.descricao</p>
+            <span class="proposta-detalhes">Proposta enviada por <b>Usuario</b> em <b>@p.getData()</b></span>
+            <div class="row mt-3">
+            <form action='/usuario/propostas/responder/@p.id/aceitar' method="post" ><button class="btn btn-success btn-aceitar-proposta ml-3">Aceitar proposta</button></form>
+            <form action='/usuario/propostas/responder/@p.id/recusar' method="post" class="float-right"><button class="btn btn-danger btn-recusar-proposta ml-3">Recusar proposta</button></form>
+          </div>
         </div>
       </div>
     </div>

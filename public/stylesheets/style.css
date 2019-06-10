@@ -13,7 +13,7 @@ body {
 
 p {
     margin: 0;
-    color: #777;
+    color:red;
     font-size: 15px;
     line-height: 1.8;
 }
@@ -1570,3 +1570,14 @@ h3.tittle-w3ls {
 .menu-item {display:list-item;}
 
 /* -- //Responsive code -- */
+
+
+.btn-recusar-proposta:hover {
+    background-color: white;
+    color: red;
+}
+
+.btn-aceitar-proposta:hover {
+    background-color: white;
+    color: green;
+}

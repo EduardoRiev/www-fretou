@@ -42,10 +42,10 @@
             <tbody>
               @for(proposta <- propostas){
                 <tr>
-                  <th scope="row">@proposta.getId()</th>
-                  <td><a href="/usuario/proposta/@proposta.getId()">@proposta.anuncio().titulo</a></td>
-                    <td>por Usuário (@proposta.getUsuario_id())</td>
-                    <td>@proposta.getStatus()</td>
+                  <th scope="row">@proposta.id</th>
+                  <td><a href="/usuario/proposta/@proposta.id">@proposta.anuncio.titulo</a></td>
+                    <td>por Usuário (@proposta.usuario_id)</td>
+                    <td>@proposta.status</td>
                     <td>@proposta.getData()</td>
                   </tr>
                 }

@@ -36,12 +36,15 @@ public class Anuncio extends Model {
     public Double peso;
     public Double valor;
     public Date data;
+    @OneToMany(cascade = CascadeType.ALL)
+    @Column(name="propostas")
+    public List<Proposta> propostas = new ArrayList<Proposta>();
 
     public String getDataFormatada() {
         return new SimpleDateFormat("dd/MM/yyyy hh:mm").format(this.data);
     }
 
-    public static Finder<Double, Anuncio> find = new Finder<>(Anuncio.class);
+    public static Finder<Integer, Anuncio> find = new Finder<>(Anuncio.class);
 
     public static List<Anuncio> filtro(String c, String v){
       List<Anuncio> anuncios = Anuncio.find.all();

@@ -26,21 +26,24 @@ public class PropostaController extends Controller {
 
     public Result indexAguardando() {
 
-        Set<Proposta> propostas = Proposta.filterByStatus(Proposta.STATUS_AGUARDANDO);
+        Set<Proposta> propostas = Proposta.find.query().where().ilike("status", Proposta.STATUS_AGUARDANDO)
+                .findSet();
 
         return ok(views.html.pages.propostas.render(propostas));
     }
 
     public Result indexAceitas() {
 
-        Set<Proposta> propostas = Proposta.filterByStatus(Proposta.STATUS_ACEITA);
+        Set<Proposta> propostas = Proposta.find.query().where().ilike("status", Proposta.STATUS_ACEITA)
+                .findSet();
 
         return ok(views.html.pages.propostas.render(propostas));
     }
 
     public Result indexRecusadas() {
 
-        Set<Proposta> propostas = Proposta.filterByStatus(Proposta.STATUS_RECUSADA);
+        Set<Proposta> propostas = Proposta.find.query().where().ilike("status", Proposta.STATUS_RECUSADA)
+                .findSet();
 
         return ok(views.html.pages.propostas.render(propostas));
     }
@@ -75,15 +78,18 @@ public class PropostaController extends Controller {
    */
 
     public Result realizar(Integer id) {
-        Anuncio anuncio = Anuncio.find.byId(id.doubleValue());
+        Anuncio anuncio = Anuncio.find.byId(id);
         assert anuncio != null;
         Form<Proposta> propostaForm = formFactory.form(Proposta.class).bindFromRequest();
 
-        Proposta p = new Proposta(id + 2, Proposta.STATUS_AGUARDANDO,
-                propostaForm.get().getDescricao(),  new Date(System.currentTimeMillis()), anuncio.usuario_id, anuncio.id);
+        Proposta p = new Proposta();
+        p.descricao = propostaForm.get().descricao;
+        p.usuario_id = anuncio.usuario_id;
+        p.anuncio = anuncio;
+        p.data = new Date(System.currentTimeMillis());
 
-        //anuncio.addProposta(p);
-        Proposta.all().add(p);
+        p.save();
+
         return redirect(routes.AnuncioController.index());
     }
 
@@ -95,7 +101,7 @@ public class PropostaController extends Controller {
    */
 
     public Result ver(int proposta_id) {
-        Proposta p = Proposta.findById(proposta_id);
+        Proposta p = Proposta.find.byId(proposta_id);
         return ok(views.html.pages.proposta.render(p));
     }
 
@@ -107,16 +113,18 @@ public class PropostaController extends Controller {
    */
 
     public Result aceitarProposta(int proposta_id) {
-        Proposta atual = Proposta.findById(proposta_id);
+        Proposta atual = Proposta.find.byId(proposta_id);
         assert atual != null;
         atual.aceitar();
+        atual.save();
         return redirect(routes.PropostaController.indexAceitas());
     }
 
     public Result recusarProposta(int proposta_id) {
-        Proposta atual = Proposta.findById(proposta_id);
+        Proposta atual = Proposta.find.byId(proposta_id);
         assert atual != null;
         atual.recusar();
+        atual.save();
         return redirect(routes.PropostaController.indexAguardando());
     }
 }
