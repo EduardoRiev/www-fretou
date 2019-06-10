@@ -58,7 +58,7 @@ public class Anuncio extends Model {
           case "cityd": busca = anun.destino.toLowerCase();break;
           default:busca = anun.titulo.toLowerCase();break;
         }
-        
+
         if(busca.contains(v.toLowerCase()))
           an.add(anun);
       }
