@@ -100,10 +100,10 @@ public class AnuncioController extends Controller {
    */
 
     public Result edit(int id) {
-        if(Anuncio.findById(id) == null)
+        if(Anuncio.find.byId(id) == null)
               return redirect(routes.AnuncioController.index());
 
-        return ok(views.html.pages.editarAnuncio.render(Anuncio.findById(id), Anuncio.CATEGORIAS, Usuario.filterByTipo(Usuario.TIPO_CONTRATANTE)));
+        return ok(views.html.pages.editarAnuncio.render(Anuncio.find.byId(id), Anuncio.CATEGORIAS, Usuario.filterByTipo(Usuario.TIPO_CONTRATANTE)));
     }
 
    /*
@@ -120,7 +120,7 @@ public class AnuncioController extends Controller {
       //Date data = new SimpleDateFormat("yyyy-MM-dd").parse(anuncioForm.get("data").toString());
       Date data = new Date(System.currentTimeMillis());
 
-      Anuncio anuncio = Anuncio.find.byId(new Double(id));
+      Anuncio anuncio = Anuncio.find.byId(id);
 
       anuncio.titulo = anuncioForm.get("titulo");
       anuncio.categoria = anuncioForm.get("categoria");
