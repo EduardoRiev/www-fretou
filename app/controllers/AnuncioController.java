@@ -34,7 +34,7 @@ public class AnuncioController extends Controller {
     public Result index() {
         List<Anuncio> anuncios = Anuncio.find.all();
 
-        return ok(views.html.pages.anuncios.render(anuncios));
+        return ok(views.html.pages.anuncios.render(anuncios, ""));
     }
 
    /*
@@ -123,5 +123,18 @@ public class AnuncioController extends Controller {
 
     public Result realizar(int id) {
         return ok("Handling HTTP POST to realizar proposta a um anuncio");
+    }
+
+    public Result buscar(){
+      DynamicForm buscaForm = formFactory.form().bindFromRequest();
+      String categoria = buscaForm.get("t");
+      String valorBuscado = buscaForm.get("val");
+
+      if(categoria.length() == 0)
+        return redirect(routes.AnuncioController.index());
+
+      List<Anuncio> anuncios = Anuncio.filtro(categoria, valorBuscado);
+
+      return ok(views.html.pages.anuncios.render(anuncios, categoria));
     }
 }

@@ -9,6 +9,8 @@ GET     /inicio                       controllers.HomeController.index
 
 GET     /anuncios                       controllers.AnuncioController.index
 
+GET     /anuncios/buscar                       controllers.AnuncioController.buscar
+
 GET     /anuncios/create                       controllers.AnuncioController.create
 
 POST     /anuncios/create                       controllers.AnuncioController.store
