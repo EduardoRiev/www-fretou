@@ -26,4 +26,4 @@ RUN cd /home/www-fretou && chown -R www-fretou . && \
 
 WORKDIR /home/www-fretou
 
-CMD /home/www-fretou/bin/www-fretou -Dconfig.resource=production.conf
+CMD /home/www-fretou/bin/www-fretou -Dpidfile.path=/dev/null -Dconfig.resource=production.conf
