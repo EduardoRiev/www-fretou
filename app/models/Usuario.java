@@ -2,8 +2,16 @@ package models;
 
 import java.util.*;
 
-public class Usuario {
+import java.text.SimpleDateFormat;
 
+import io.ebean.*;
+
+import javax.persistence.*;
+
+@Entity
+public class Usuario{
+
+  @Id
   public static String TIPO_CONTRATANTE = "contratante";
   public static String TIPO_FRETISTA = "fretista";
 
@@ -13,23 +21,10 @@ public class Usuario {
 
   private static Set<Usuario> usuarios;
 
-
-
   public Usuario(int id, String tipo, String nome){
     this.id = id;
     this.tipo = tipo;
     this.nome = nome;
-  }
-
-  static {
-    usuarios = new HashSet<>();
-
-    usuarios.add(new Usuario(1, TIPO_CONTRATANTE, "Daniel Souza"));
-    usuarios.add(new Usuario(11, TIPO_FRETISTA, "David Héricles"));
-    usuarios.add(new Usuario(111, TIPO_CONTRATANTE, "Eduardo Riev"));
-    usuarios.add(new Usuario(1111, TIPO_FRETISTA, "Elvis Silva"));
-    usuarios.add(new Usuario(11111, TIPO_CONTRATANTE, "Esther Aragão"));
-    usuarios.add(new Usuario(111111, TIPO_FRETISTA, "Hérikle Mesquita"));
   }
 
   public static Set<Usuario> all() {

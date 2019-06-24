@@ -27,6 +27,18 @@ create table proposta (
   constraint pk_proposta primary key (id)
 );
 
+create table servico (
+  id                            integer auto_increment not null,
+  usuario_id                    integer not null,
+  constraint pk_servico primary key (id)
+);
+
+create table usuario (
+  id                            integer not null,
+  tipo                          varchar(255),
+  nome                          varchar(255)
+);
+
 create index ix_proposta_anuncio_id on proposta (anuncio_id);
 alter table proposta add constraint fk_proposta_anuncio_id foreign key (anuncio_id) references anuncio (id) on delete restrict on update restrict;
 
@@ -39,4 +51,8 @@ drop index if exists ix_proposta_anuncio_id;
 drop table if exists anuncio;
 
 drop table if exists proposta;
+
+drop table if exists servico;
+
+drop table if exists usuario;
 

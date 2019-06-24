@@ -1,5 +1,17 @@
+package models;
+
+import java.util.*;
+
+import java.text.SimpleDateFormat;
+
+import io.ebean.*;
+
+import javax.persistence.*;
+
+@Entity
 public class Servico {
 
+  @Id
   private int id;
   private int usuario_id;
 
