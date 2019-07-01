@@ -34,7 +34,7 @@ create table servico (
 );
 
 create table usuario (
-  id                            integer not null,
+  id                            integer,
   tipo                          varchar(255),
   nome                          varchar(255),
   sexo                          varchar(255),

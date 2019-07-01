@@ -13,18 +13,18 @@ public class Usuario{
   public static String TIPO_CONTRATANTE = "contratante";
   public static String TIPO_FRETISTA = "fretista";
 
-  private int id;
-  private String tipo;
-  private String nome;
-  private String sexo;
-  private String dataNascimento;
-  private String telefone;
-  private String email; 
-  private String senha; 
-  private Integer numAvaliacoes; 
-  private Integer ptsAvaliacoes;  
+  public Integer id;
+  public String tipo;
+  public String nome;
+  public String sexo;
+  public String dataNascimento;
+  public String telefone;
+  public String email; 
+  public String senha; 
+  public Integer numAvaliacoes; 
+  public Integer ptsAvaliacoes;  
 
-  private static Set<Usuario> usuarios;
+  public static Set<Usuario> usuarios;
 
   public Usuario(int id, String tipo, String nome, String sexo, String dataNascimento, String email, String senha,
    Integer numAvaliacoes, Integer ptsAvaliacoes){
@@ -124,11 +124,11 @@ public class Usuario{
     return this.numAvaliacoes;
   }
 
-  private void setPtsAvalicoes(Integer ptsAvaliacoes){
+  public void setPtsAvalicoes(Integer ptsAvaliacoes){
     this.ptsAvaliacoes = ptsAvaliacoes;
   }
 
-  private Integer getPtsAvalicoes(Integer ptsAvaliacoes){
+  public Integer getPtsAvalicoes(Integer ptsAvaliacoes){
     return this.ptsAvaliacoes;
   }
 }
