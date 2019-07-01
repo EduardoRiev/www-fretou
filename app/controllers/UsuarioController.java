@@ -33,6 +33,4 @@ public class UsuarioController extends Controller {
     public Result avaliar(int usuario_id, int anuncio_id) {
         return ok("Handling HTTP POST to update avaliacao table.");
     }
-
-
 }

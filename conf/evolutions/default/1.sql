@@ -36,7 +36,14 @@ create table servico (
 create table usuario (
   id                            integer not null,
   tipo                          varchar(255),
-  nome                          varchar(255)
+  nome                          varchar(255),
+  sexo                          varchar(255),
+  data_nascimento               varchar(255),
+  telefone                      varchar(255),
+  email                         varchar(255),
+  senha                         varchar(255),
+  num_avaliacoes                integer,
+  pts_avaliacoes                integer
 );
 
 create index ix_proposta_anuncio_id on proposta (anuncio_id);
