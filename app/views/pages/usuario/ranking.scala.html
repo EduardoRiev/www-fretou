@@ -1,0 +1,43 @@
+@main("Título do Anuncio","no", scripts){
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-6 text-center">
+          <h2>@anuncio.titulo <a href="@routes.AnuncioController.edit(anuncio.id)" alt="Editar" title="Editar"><i class="fas fa-pencil-alt"></i></a></h2>
+          <span>Usuário #@anuncio.usuario_id (Id do Usuário)</span>
+          <p>Publicado em @anuncio.data</p>
+          <h4>Peso @anuncio.peso</h4><br>
+          <span>Local de Retirada: @anuncio.origem</span><br>
+          <span>destino da entrega: @anuncio.destino</span><br>
+        </div>
+        <div class="col-12 text-justify">
+            <textbox class="text-justify">@anuncio.descricao</textbox>
+          </div>
+        <div class="col-12 d-none" id="propostaForm">
+          <h3>Formulário de envio de propostas</h3>
+
+          @helper.form(action = routes.PropostaController.realizar(anuncio.id), 'id -> "formProposta") {
+          <div class="form-group">
+            <label for="descricao">Descrição</label>
+            <textarea name="descricao" id="descricao" cols="30" rows="10" class="form-control"></textarea>
+          </div>
+
+          <button class="btn btn-primary" id="enviar-proposta-button">Enviar proposta</button>
+          }
+        </div>
+        <div class="row">
+          <div class="col-12 my-3">
+            <img src="https://placehold.it/500x260" class="mx-4">
+            <img src="https://placehold.it/500x260" class="mx-4">
+          </div><br>
+          <div class="col-6 text-center">
+          <h3>Valor sugerido: R$ @anuncio.valor</h3><br>
+          <button class="btn btn-lg btn-secondary" type="button" onclick="showPropostaForm()">Adicionar proposta</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}
